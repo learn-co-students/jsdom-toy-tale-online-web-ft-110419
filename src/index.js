@@ -21,10 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then(function(json){
-      // console.log(json)
     createToyCard(json)
-
-    })
+  })
 });
 
 // challenge 1 works
@@ -36,7 +34,7 @@ function createToyCard(json) {
     div.appendChild(card)
 
     let header = document.createElement("h2")
-    header.innerText = element.name
+    header.innerText = `${element.id}. ${element.name}`
     card.appendChild(header)
 
     let image = document.createElement("img")
@@ -53,7 +51,9 @@ function createToyCard(json) {
     button.innerHTML = "Like <3"
     card.appendChild(button)
   }
+  like()
 }
+
 
 // Challenge 2 works
 function addNewToy() {
@@ -72,7 +72,6 @@ function addNewToy() {
         image: document.querySelectorAll(".container input")[1].value,
         likes: "0"
       })
-  
     };
     
       fetch("http://localhost:3000/toys", configObj)
@@ -88,7 +87,45 @@ function addNewToy() {
         alert("Unauthorized Access");
         console.log(error.message);
       });
-    })
+  })
 }
 
-// challenge 3 (not yet)
+// challenge 3 works
+function like() {
+  let likeButtons = document.querySelectorAll("button.like-btn")
+  likeButtons.forEach(likeButton => {
+    likeButton.addEventListener('click', function() {
+      console.log(likeButton)
+      let n = likeButton.previousElementSibling.innerText[0]
+      likeButton.previousElementSibling.innerText = `${++n} likes`
+      let id = likeButton.previousElementSibling.previousElementSibling.previousElementSibling.innerText[0]
+
+      let configObj = {
+        method: "PATCH",
+        headers: 
+        {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          likes: n
+        })
+      };
+      console.log(n)
+
+      fetch(`http://localhost:3000/toys/${id}`, configObj)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(object) {
+        console.log(object);
+  
+      })
+      .catch(function(error) {
+        document.body.innerHTML= 'Unauthorized Access'
+        alert("Unauthorized Access");
+        console.log(error.message);
+      });
+    })
+  })
+}
