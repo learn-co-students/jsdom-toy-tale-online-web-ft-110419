@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyForm = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
+        // hide & seek with the form
+
+    addNewToy()
+
+
+
     // hide & seek with the form
     addToy = !addToy;
     if (addToy) {
@@ -12,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
       toyForm.style.display = "none";
     }
   });
+
+
   fetch("http://localhost:3000/toys")
     .then(function(response) {
       return response.json();
     })
     .then(function(json){
-      console.log(json)
-      // console.log(json[0])
-      // console.log(json[0].name)
+      // console.log(json)
     createToyCard(json)
 
     })
@@ -28,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function createToyCard(json) {
   let div = document.getElementById("toy-collection")
   for (const element of json) {
-    console.log(element);
     let card = document.createElement("div")
     card.className = "card"
     div.appendChild(card)
@@ -54,38 +59,39 @@ function createToyCard(json) {
 }
 
 
-
-
-
-
-// function getToys{
-    
-//   let configObj = {
-//       // method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         "Accept": "application/json"
-//       },
-//       body: JSON.stringify({
-//           name: name,
-//           image: email
-//       })
-//     };
+function addNewToy() {
+  let submit = document.querySelectorAll(".container input")[2]
+  submit.addEventListener("click", () => {
+    // console.log("testing")
   
-//     return fetch("http://localhost:3000/users", configObj)
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then(function(object) {
-//         let body = document.querySelector("body")
-//         let element = document.createElement('p')
-//         element.innerHTML= object.id 
-//         body.appendChild(element)
-//       console.log(object);
-//     })
-//     .catch(function(error) {
-//       document.body.innerHTML= 'Unauthorized Access'
-//       alert("Unauthorized Access");
-//       console.log(error.message);
-//     });
-// }
+    
+    let configObj = {
+      method: "POST",
+      headers: 
+      {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: document.querySelectorAll(".container input")[0].value,
+        image: document.querySelectorAll(".container input")[1].value,
+        likes: "0"
+      })
+  
+    };
+    
+      fetch("http://localhost:3000/toys", configObj)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(object) {
+        console.log(object);
+  
+      })
+      .catch(function(error) {
+        document.body.innerHTML= 'Unauthorized Access'
+        alert("Unauthorized Access");
+        console.log(error.message);
+      });
+    })
+}
