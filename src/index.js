@@ -33,20 +33,24 @@ function createToyCard(json) {
     card.className = "card"
     div.appendChild(card)
 
-    let header = document.createElement("h1")
+    let header = document.createElement("h2")
     header.innerText = element.name
     card.appendChild(header)
 
-    let image = document.createElement("div")
-    image.innerHTML = `<img src=${element.image} width="80%">`
+    let image = document.createElement("img")
+    image.src = `${element.image}`
+    image.className = "toy-avatar"
     card.appendChild(image)
 
-    let footer = document.createElement("h3")
+    let footer = document.createElement("p")
     footer.innerText = `${element.likes} likes`
     card.appendChild(footer)
 
+    let button = document.createElement("button")
+    button.className = "like-btn"
+    button.innerHTML = "Like <3"
+    card.appendChild(button)
   }
-
 }
 
 
