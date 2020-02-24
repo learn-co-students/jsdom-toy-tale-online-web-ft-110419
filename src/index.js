@@ -4,13 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyForm = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
-        // hide & seek with the form
 
     addNewToy()
 
-
-
-    // hide & seek with the form
     addToy = !addToy;
     if (addToy) {
       toyForm.style.display = "block";
@@ -31,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 });
 
+// challenge 1 works
 function createToyCard(json) {
   let div = document.getElementById("toy-collection")
   for (const element of json) {
@@ -58,12 +55,10 @@ function createToyCard(json) {
   }
 }
 
-
+// Challenge 2 works
 function addNewToy() {
   let submit = document.querySelectorAll(".container input")[2]
-  submit.addEventListener("click", () => {
-    // console.log("testing")
-  
+  submit.addEventListener("click", () => {  
     
     let configObj = {
       method: "POST",
@@ -95,3 +90,5 @@ function addNewToy() {
       });
     })
 }
+
+// challenge 3 (not yet)
