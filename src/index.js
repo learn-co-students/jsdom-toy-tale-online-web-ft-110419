@@ -31,11 +31,11 @@ function postToy(toy_data) {
     })
 }
 
-function likes(e) {
-  e.preventDefault()
-  let more = parseInt(e.target.previousElementSibling.innerText) + 1
+function likes(t) {
+  t.preventDefault()
+  let more = parseInt(t.target.previousElementSibling.innerText) + 1
 
-  fetch(`http://localhost:3000/toys/${e.target.id}`, {
+  fetch(`http://localhost:3000/toys/${t.target.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function likes(e) {
     })
     .then(res => res.json())
     .then((like_obj => {
-      e.target.previousElementSibling.innerText = `${more} likes`;
+      t.target.previousElementSibling.innerText = `${more} likes`;
     }))
 }
 
