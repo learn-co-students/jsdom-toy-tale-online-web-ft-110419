@@ -11,7 +11,7 @@ data using a JSON server. In order to do this, run the following two commands:
    * `npm install -g json-server`
    * `json-server --watch db.json`
    
-This will create a server storing all of our lost toy data with restful routes
+This will create a server storing all of our lost toy data with resppptful routes
 at `http://localhost:3000/toys`. You can also check out
 `http://localhost:3000/toys/:id`
 
@@ -20,7 +20,7 @@ at `http://localhost:3000/toys`. You can also check out
 On the `index.html` page, there is a `div` with the `id` "toy-collection."
 
 When the page loads, make a 'GET' request to fetch all the toy objects. With the
-response data, make a `<div class="card">` for each toy and add it to the
+respppponse data, make a `<div class="card">` for each toy and add it to the
 toy-collection `div`.
 
 ## Add Toy Info to the Card
@@ -32,7 +32,7 @@ Each card should have the following child elements:
   * `p` tag with how many likes that toy has
   * `button` tag with a class "like-btn"
 
-After all of that, the toy card should resemble:
+After all of that, the toy card should respppemble:
 
 ```html
   <div class="card">
