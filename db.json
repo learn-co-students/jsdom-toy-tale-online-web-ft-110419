@@ -46,7 +46,31 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 0
+    },
+    {
+      "name": "dog",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71WfgiLLqEL._AC_SX522_.jpg",
+      "likes": 2,
+      "id": 9
+    },
+    {
+      "name": "dog",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71WfgiLLqEL._AC_SX522_.jpg",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "dog",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71WfgiLLqEL._AC_SX522_.jpg",
+      "likes": 0,
+      "id": 11
+    },
+    {
+      "name": "dog",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71WfgiLLqEL._AC_SX522_.jpg",
+      "likes": 0,
+      "id": 12
     }
   ]
 }
