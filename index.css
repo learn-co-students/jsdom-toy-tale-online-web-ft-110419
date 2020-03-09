@@ -20,6 +20,13 @@ body {
 #toy-collection {
   margin: 2rem;
 }
+#toy-collection img {
+  width: 220px;
+}
+
+#toy-collection button {
+  cursor: pointer;
+}
 
 .card {
   text-align: center;
