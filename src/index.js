@@ -12,4 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
       toyForm.style.display = "none";
     }
   });
+
+  const toyCollection = document.querySelector("#toy-collection")
+
+  function getToys() {
+    fetch('http://localhost:3000/toys')
+    .then (handleResponse)
+  }
+
 });
